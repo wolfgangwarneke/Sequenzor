@@ -13,6 +13,24 @@ function Sequenzor() {
     <button onClick={events[2]}>Three</button>,
     <button onClick={events[3]}>Four</button>
   ];
+  window.addEventListener('keydown', e => {
+    switch (e.key) {
+      case 'a':
+        events[0]();
+        break;
+      case 's':
+        events[1]();
+        break;
+      case 'd':
+        events[2]();
+        break;
+      case 'f':
+        events[3]();
+        break;
+      default:
+        break;
+    }
+  })
 
   return (
     <div className="Sequenzor">
