@@ -1,6 +1,11 @@
 const SequenzorSynth = () => {
-    // create web audio api context
     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    const biquadFilter = audioCtx.createBiquadFilter();
+    biquadFilter.connect(audioCtx.destination);
+
+    biquadFilter.type = 'lowpass';
+    biquadFilter.frequency.setValueAtTime(2700, audioCtx.currentTime);
     
     const playTone = option => {
         var oscillator = audioCtx.createOscillator();
@@ -8,7 +13,7 @@ const SequenzorSynth = () => {
         const pitch = option <= 4 ? [65.41, 77.78, 98, 130.81][option] : option;
         oscillator.type = 'square';
         oscillator.frequency.setValueAtTime(pitch, audioCtx.currentTime); // value in hertz
-        oscillator.connect(audioCtx.destination);
+        oscillator.connect(biquadFilter);
         oscillator.start();
         setInterval(() => oscillator.stop(), 150);
     };
