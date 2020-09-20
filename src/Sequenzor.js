@@ -2,29 +2,24 @@ import React from 'react';
 import './Sequenzor.css';
 import SequenzorLogic from './SequenzorLogic';
 import SequenzorSynth from './SequenzorSynth.js';
+import Pad from './Pad.js';
 
 function Sequenzor() {
   const sequenzorSynth = SequenzorSynth();
   const sequenzorLogic = SequenzorLogic(sequenzorSynth);
   const events = sequenzorLogic.getEvents();
-  const buttons = [
-    <button onClick={events[0]}>One</button>,
-    <button onClick={events[1]}>Two</button>,
-    <button onClick={events[2]}>Three</button>,
-    <button onClick={events[3]}>Four</button>
-  ];
   window.addEventListener('keydown', e => {
     switch (e.key) {
-      case 'a':
+      case 'q':
         events[0]();
         break;
-      case 's':
+      case 'w':
         events[1]();
         break;
-      case 'd':
+      case 'a':
         events[2]();
         break;
-      case 'f':
+      case 's':
         events[3]();
         break;
       default:
@@ -36,7 +31,10 @@ function Sequenzor() {
     <div className="Sequenzor">
         <h1>Sequenzor!</h1>
         <div>
-            {buttons}
+          <Pad onClick={events[0]} color="green" letter="q" />
+          <Pad onClick={events[1]} color="red" letter="w" />
+          <Pad onClick={events[2]} color="yellow" letter="a" />
+          <Pad onClick={events[3]} color="blue" letter="s" />
         </div>
     </div>
   );

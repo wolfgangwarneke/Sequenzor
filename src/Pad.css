@@ -1,0 +1,27 @@
+.Pad {
+    height: 10vw;
+    width: 10vw;
+    float: left;
+    text-align: center;
+    font-size: 6.5vw;
+}
+
+.Pad:nth-of-type(3) {
+    clear: left;
+}
+
+.Pad-green {
+    background-color: green;
+}
+
+.Pad-red {
+    background-color: red;
+}
+
+.Pad-yellow {
+    background-color: yellow;
+}
+
+.Pad-blue {
+    background-color: blue;
+}

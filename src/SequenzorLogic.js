@@ -5,23 +5,24 @@ const SequenzorLogic = (sequenzorSynth) => {
     let computerIsPlaying = false;
     let curIdx = 0;
 
-    window.printGameState = () => {
-        console.log(sequence);
-        console.log('Playing', playing);
-        console.log('Computer Is Playing', computerIsPlaying);
-        console.log('curIdx', curIdx);
-    };
-
     const addEntryToSequence = () => {
         const entryNum = Math.floor(Math.random() * 4);
         sequence.push(entryNum);
+    };
+
+    const flashCSSClass = num => {
+        const activationClass = `activate-pad-${num}`;
+        document.body.classList.add(activationClass);
+        setTimeout(() => document.body.classList.remove(activationClass), 200);
     };
 
     const playSequence = () => {
       computerIsPlaying = true;
       for (let i = 0; i < sequence.length; i++) {
           const interval = setInterval(() => {
-            sequenzorSynth.play(sequence[i]);
+            const sequenceNum = sequence[i];
+            flashCSSClass(sequenceNum);
+            sequenzorSynth.play(sequenceNum);
             if (i === sequence.length - 1) {
                 computerIsPlaying = false;
             }
@@ -76,15 +77,12 @@ const SequenzorLogic = (sequenzorSynth) => {
     };
 
     const handlePress = num => {
+        flashCSSClass(num);
         if (!playing) startPlaying();
         else takeTurn(num);
     };
 
     return {
-        start: () => {
-            sequence.length = 0;
-
-        },
         getEvents: () => {
             const events = [];
             for (let i = 0; i < 4; i++) {
