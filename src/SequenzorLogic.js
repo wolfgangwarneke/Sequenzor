@@ -30,9 +30,11 @@ const SequenzorLogic = (sequenzorSynth) => {
         const toneWasCorrect = num === sequence[curIdx++];
         if (!toneWasCorrect) {
             console.log('You lose.');
+            sequenzorSynth.playLoseTune();
             stopPlaying();
         } else if (curIdx === sequence.length) {
             console.log('You win!');
+            sequenzorSynth.playWinTune();
             stopPlaying();
         }
     };
