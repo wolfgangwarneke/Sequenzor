@@ -30,6 +30,7 @@ function Sequenzor() {
   return (
     <div className="Sequenzor">
         <h1>Sequenzor!</h1>
+        <p>Press any pad to begin</p>
         <div>
           <Pad onClick={events[0]} color="green" letter="q" />
           <Pad onClick={events[1]} color="red" letter="w" />

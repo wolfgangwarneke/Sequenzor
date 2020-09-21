@@ -20,6 +20,7 @@ const SequenzorSynth = () => {
     return ({
         play: option => playTone(option),
         playWinTune: () => {
+            // start at 200Hz and increase by 100Hz each iteration
             for (let i = 200, j = 1; i < 2000; i += 100, j++) {
                 const interval = setInterval(() => {
                     playTone(i);
@@ -28,6 +29,7 @@ const SequenzorSynth = () => {
             }
         },
         playLoseTune: () => {
+            // start at 2000Hz and decrease by 50Hz plus a 15% portion of the previous frequency
             for (let i = 2000, j = 1; i >= 200; i -= 50 + (i * 0.15), j++) {
                 const interval = setInterval(() => {
                     playTone(i);
