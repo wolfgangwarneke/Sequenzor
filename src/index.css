@@ -15,5 +15,7 @@
 }
 
 body {
-    background-color: aquamarine;
+    text-align: center;
+    background: radial-gradient(rgba(0, 0, 0, 0), rgb(100, 100, 100)), linear-gradient(-10deg, #aaaaaa26, #ffffff26);
+    min-height: 100vh;
 }

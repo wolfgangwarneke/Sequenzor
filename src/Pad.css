@@ -3,7 +3,26 @@
     width: 10vw;
     float: left;
     text-align: center;
+    font-family: 'Monoton', monospace;
     font-size: 6.5vw;
+    color: rgba(0, 0, 0, 0.05);
+    position: relative;
+    box-sizing: border-box;
+    margin: 0.2vw;
+    box-shadow: 0 0 0.5vw #222;
+    transition: opacity 0.15s ease-in;
+    cursor: pointer;
+}
+
+.Pad:after {
+    content: "";
+    height: 40%;
+    width: 40%;
+    display: inline-block;
+    background: #3a3a3a;
+    position: absolute;
+    transform: scale(1.25);
+    /* box-shadow: 0 0 0.5vw #222; */
 }
 
 .Pad:nth-of-type(3) {
@@ -12,16 +31,56 @@
 
 .Pad-green {
     background-color: green;
+    border-top-left-radius: 100%;
+    border-top: 5px inset rgba(121, 229, 99, 0.28);
+    border-left: 5px inset rgba(121, 229, 99, 0.28);
+}
+
+.Pad-green:after {
+    bottom: 0;
+    right: 0;
+    border-top-left-radius: 100%;
+    box-shadow: -0.25vw -0.25vw 0.1vw 0.15vw rgba(50, 50, 50, .3);
 }
 
 .Pad-red {
     background-color: red;
+    border-top-right-radius: 100%;
+    border-top: 5px inset rgba(121, 229, 99, 0.28);
+    border-right: 5px inset rgba(121, 229, 99, 0.28);
+}
+
+.Pad-red:after {
+    bottom: 0;
+    left: 0;
+    border-top-right-radius: 100%;
+    box-shadow: 0.25vw -0.25vw 0.1vw 0.15vw rgba(70, 70, 70, .3);
 }
 
 .Pad-yellow {
     background-color: yellow;
+    border-bottom-left-radius: 100%;
+    border-bottom: 5px inset rgba(229, 160, 99, 0.28);
+    border-left: 5px inset rgba(229, 160, 99, 0.28);
+}
+
+.Pad-yellow:after {
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 100%;
+    box-shadow: -0.25vw 0.25vw 0.1vw 0.15vw rgba(50, 50, 50, .3);
 }
 
 .Pad-blue {
     background-color: blue;
+    border-bottom-right-radius: 100%;
+    border-bottom: 5px inset rgba(118, 127, 137, 0.28);
+    border-right: 5px inset rgba(118, 127, 137, 0.28);
+}
+
+.Pad-blue:after {
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 100%;
+    box-shadow: 0.25vw 0.25vw 0.1vw 0.15vw rgba(80, 80, 80, .3);
 }

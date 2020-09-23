@@ -1,0 +1,23 @@
+.Logo {
+    font-family: 'Monoton', monospace;
+    color: #e5e5e5;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: calc(50% - 0.825vw);
+    left: calc(50% - 1.65vw);
+    transform: translate(-25%, -25%);
+    z-index: 2;
+}
+
+/* .Logo:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 10vw;
+    width: 10vw;
+    background-color: black;
+    border-radius: 100%;
+} */
